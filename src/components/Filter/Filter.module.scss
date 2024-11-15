@@ -1,0 +1,11 @@
+@use '@/styles/mixins';
+
+.main {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+.input {
+  @include mixins.text-input;
+}

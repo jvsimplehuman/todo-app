@@ -1,0 +1,29 @@
+@use '@/styles/mixins';
+
+.main {
+  max-width: 400px;
+  margin: auto;
+}
+
+.label {
+  display: block;
+}
+
+.input,
+.textarea {
+  @include mixins.text-input;
+  width: 100%;
+}
+
+.textarea {
+  height: 8rem;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
