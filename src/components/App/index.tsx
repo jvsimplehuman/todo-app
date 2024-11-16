@@ -9,7 +9,7 @@ import Button from '@/components/Button';
 import styles from './App.module.scss';
 import { contains, isOfType } from '@/utils/todos';
 
-const items: Todo[] = [
+const defaultItems: Todo[] = [
   {
     id: uuid(),
     title: 'Learn React',
@@ -24,8 +24,8 @@ const items: Todo[] = [
   },
   {
     id: uuid(),
-    title: 'Apply for CIQ',
-    description: 'Apply for CIQ and get a job',
+    title: 'Apply for role at CIQ',
+    description: 'Submit application to CIQ',
     isCompleted: false,
   },
 ];
@@ -37,7 +37,7 @@ const App: FC = () => {
   const [search, setSearch] = useState<string>('');
   const [filter, setFilter] = useState<FilterType>(FilterType.All);
   const [editingId, setEditingId] = useState<string>();
-  const [todos, setTodos] = useState<Todo[]>(items);
+  const [todos, setTodos] = useState<Todo[]>(defaultItems);
   const formWrapper = useRef<HTMLDivElement>();
 
   const handleAddTodo = (todo: Todo) => {
@@ -90,7 +90,7 @@ const App: FC = () => {
         />
       </div>
       <div className={styles.items} aria-live="polite">
-        {items.length > 0 ? (
+        {todos.length > 0 ? (
           <>
             {filteredTodos.map((item) => (
               <TodoItem
@@ -109,7 +109,7 @@ const App: FC = () => {
             ) : null}
           </>
         ) : (
-          <p className={styles.message}>Nothing to-do. 🎉</p>
+          <p className={styles.message}>Nothing to do. 🎉</p>
         )}
       </div>
 
